@@ -20,6 +20,22 @@
 ```bash
 DNS监控-1627088317747.json
 ```
+## Quickstart
+
+Start BIND using:
+
+```bash
+docker run --name dns -t --hostname dns --restart=always \
+-v /data/dns:/data -v /etc/localtime:/etc/localtime:ro \
+-p 10000:10000/tcp -p 53:53/tcp -p 53:53/udp -p 9110:9119/tcp \
+-d sameersbn/bind
+```
+- test metrics
+```bash
+curl http://localhost:9119/metrics
+```
+
+
 [![Wy70M9.png](https://z3.ax1x.com/2021/07/24/Wy70M9.png)](https://imgtu.com/i/Wy70M9)
 
 
