@@ -20,7 +20,7 @@
 ```bash
 DNS监控-1627088317747.json
 ```
-[![toolkit](https://obohe.com/i/2021/07/24/f1wibj.png)](https://graphql-tools.com)
+[![Wy70M9.png](https://z3.ax1x.com/2021/07/24/Wy70M9.png)](https://imgtu.com/i/Wy70M9)
 
 
 [![Circle CI](https://circleci.com/gh/sameersbn/docker-bind.svg?style=shield)](https://circleci.com/gh/sameersbn/docker-bind) [![Docker Repository on Quay.io](https://quay.io/repository/sameersbn/bind/status "Docker Repository on Quay.io")](https://quay.io/repository/sameersbn/bind)
