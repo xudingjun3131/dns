@@ -1,3 +1,27 @@
+# Modified Contents:
+- Modified from https://github.com/sameersbn/docker-bind
+- add bind_exporter for sammersbn/bind
+- add dns grafann dashboard json file
+
+- prometheus yml example:
+
+```bash
+  - job_name: 'DNS'
+#    scrape_interval: 60s
+#    scrape_timeout: 60s
+    static_configs:
+      - targets: ['192.168.1.10:9119']
+        labels:
+          instance: 192.168.1.10
+          alias: dns
+          port: 9119
+```
+- import grafana json
+```bash
+DNS监控-1627088317747.json
+```
+
+
 [![Circle CI](https://circleci.com/gh/sameersbn/docker-bind.svg?style=shield)](https://circleci.com/gh/sameersbn/docker-bind) [![Docker Repository on Quay.io](https://quay.io/repository/sameersbn/bind/status "Docker Repository on Quay.io")](https://quay.io/repository/sameersbn/bind)
 
 # sameersbn/bind:9.16.1-20200524
