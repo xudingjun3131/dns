@@ -28,7 +28,7 @@ Start BIND using:
 docker run --name dns -t --hostname dns --restart=always \
 -v /data/dns:/data -v /etc/localtime:/etc/localtime:ro \
 -p 10000:10000/tcp -p 53:53/tcp -p 53:53/udp -p 9110:9119/tcp \
--d sameersbn/bind
+-d xxx/dns
 ```
 - test metrics
 ```bash
