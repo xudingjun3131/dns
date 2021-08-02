@@ -108,6 +108,15 @@ first_init() {
   fi
 }
 
+start_bind_exporter() {
+  cat >> /etc/bind/named.conf.options<< EOF
+statistics-channels {
+  inet 127.0.0.1 port 53 allow { 127.0.0.1; };
+};
+EOF
+  /data/bind_exporter  --bind.pid-file=/data/named.pid  --bind.timeout=20s   --web.listen-address=0.0.0.0:9119   --web.telemetry-path=/metrics   --bind.stats-url=http://localhost:53   --bind.stats-groups=server,view,tasks 2>&1 > /data/dns.log &
+}
+
 create_pid_dir
 create_bind_data_dir
 create_bind_cache_dir
@@ -127,8 +136,9 @@ if [[ -z ${1} ]]; then
     create_webmin_data_dir
     first_init
     set_root_passwd
+    start_bind_exporter
     echo "Starting webmin..."
-    /etc/init.d/webmin start
+    /etc/init.d/webmin start 
   fi
 
   echo "Starting named..."

@@ -15,7 +15,6 @@ ENV BIND_USER=bind \
     DATA_DIR=/data
 
 COPY trusted.gpg /etc/apt/trusted.gpg
-
 COPY sources.list /etc/apt/sources.list
 
 RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
@@ -26,14 +25,14 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /sbin/entrypoint.sh
-COPY bind_exporter.sh  /sbin/bind_exporter.sh
 COPY bind_exporter  /data/
 COPY named.pid  /data/
 RUN chmod 755 /sbin/entrypoint.sh
-RUN chmod 755 /sbin/bind_exporter.sh
 RUN chmod 755 /data/bind_exporter
 RUN chmod 755 /data/named.pid
 EXPOSE 53/udp 53/tcp 10000/tcp 9119/tcp
 
+
 ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["/bin/sh","/sbin/bind_exporter.sh"]
+
+CMD ["/usr/sbin/named"]
